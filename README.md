@@ -1,13 +1,13 @@
-﻿# MVP Summit 2016 IoT Workshop 
+# MVP Summit 2016 - IoT Workshop 
 
-Welcome to the MVP Summit 2016 IoT Workshop! 
+Welcome to the MVP Summit 2016 - IoT Workshop! 
 
 
 
 We are so glad to have you with us today. We put together this workshop to share some new and exciting features coming to Azure IoT. Our goal is to get you up-to-speed on the latest developments so you can take the knowledge back to your office and start implementing IoT solutions with them.
 
 We are presenting two labs today, one for **Azure IoT Device Management** and 
-one for the **Azure IoT Field Gateway SDK**.  Device Management will introduce you to the new Device Twins and Direct Methods. Azure IoT Field Gateway will introduce you to our brand new SDK for building IoT Gateway devices that enables non-internet connected device to send data to Azure IoT. 
+one for the **Azure IoT Gateway SDK**.  The Azure IoT Device Management lab will introduce you to the new Device Twins and Direct Methods. The Azure IoT Gateway SDK lab will introduce you to our brand new SDK for building IoT Gateway devices that enables non-internet connected device to send data to Azure IoT. 
 
 > Proctors from DX and Azure IoT are available to help you work through these workshops, answer questions or talk tech.
 
@@ -18,22 +18,22 @@ Bluetooth Low Energy (BLE) Sensor Tag, and an Azure Subscription.
 - All required code packages noted below have been pre-loaded and/or built for 
 your convenience; so you may skip running any commands for setting up the Raspberry Pi dependencies.  
 - You'll find 
-the Azure IoT Hub SDK, Azure IoT Field Gateway SDK and our bonus IoT Sample library on your Pi in the home directory(`~/code`) of the `pi` user.
+the Azure IoT Hub SDK, Azure IoT Gateway SDK and our bonus IoT Sample library on your Pi in the home directory(`~/code`) of the `pi` user.
 - All required Node.js packages have been installed globally. If you have any issues with npm packages, you can link them directly by executing the following command: `npm link {packageName}`
-- The Azure IoT Hub Field Gateway has been built with the Node.js bindings. .NET and Java are also available, but we will not be touching on those today.  
+- The Azure IoT Gateway SDK has been built with the Node.js bindings. .NET and Java are also available, but we will not be touching on those today.  
 
-## Device Management Lab
+## Azure IoT Device Management Lab
 
 This lab will bring you through the new **Device Twins** and **Direct Methods** features. 
 
-The Device Management lab is available [here](https://github.com/Azure/azure-iot-sdks/tree/mvp_summit/c/serializer/samples/devicetwin_configupdate#how-to-update-configuration-and-reboot-an-iot-device-with-azure-iot-device-twins).
+The Azure IoT Device Management lab is available [here](https://github.com/Azure/azure-iot-sdks/tree/mvp_summit/c/serializer/samples/devicetwin_configupdate#run-the-device-twin-config-update-sample). 
 
 
-## Field Gateway SDK Lab 
+## Azure IoT Gateway SDK Lab 
 
-This lab will bring you through the new **Field Gateway SDK** using a Bluetooth Low Energy (BLE) Sensor Tag, Raspberry Pi and Node.js.
+This lab will bring you through the new **Azure IoT Gateway SDK** using a Bluetooth Low Energy (BLE) Sensor Tag, Raspberry Pi and Node.js.
 
-The Field Gateway SDK lab is available [here](https://azure.microsoft.com/en-us/documentation/articles/iot-hub-gateway-sdk-physical-device/#prepare-your-hardware).
+The Azure IoT Gateway SDK lab is available [here](iot-hub-gateway-sdk-physical-device.md).
 
 
 >Please read the architectural introduction before jumping to the "Enable connectivity to the Sensor Tag device from your Raspberry Pi 3 device"
@@ -41,21 +41,21 @@ section to configure your TI BLE Sensor Tag.
 
 ## Bonus Challenges
 
-You are likely an overachiever, so we've included a few extra challenges!  Please make sure you complete the Field Gateway SDK lab first.
+You are likely an overachiever, so we've included a few extra challenges!  Please make sure you complete the Azure IoT Gateway SDK lab first.
 
 > Note: Your Raspberry Pi has been setup with the required tooling 
-to run the [Azure IoT Hub Gateway Examples in Node.js](https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/nodejs_how_to.md#linux-1).
+to run the [Azure IoT Gateway SDK Examples in Node.js](https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/nodejs_how_to.md#linux-1).
 
 ### Manually Batching Messages
 - Create a Node.js Module that concatenates messages from the `node_sensor` using 
-a `|` delimiter and then posts them to the Field Gateway's internal message bus. 
+a `|` delimiter and then posts them to the Gateway's internal message bus. 
 
 ### Compress Batched Messages  
 - Develop a Node.js Module that compresses the batched messages and posts them to 
-the Field Gateway's internal message bus.
+the Gateway's internal message bus.
 
 ### Implement an IoT Hub Writer
-- Copy and configure the IoT Writer Node.js from the Field Gateway Sample Project [here](https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/nodejs_simple_sample/nodejs_modules/iothub_writer.js).
+- Copy and configure the IoT Writer Node.js from the Azure IoT Gateway SDK Sample Project [here](https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/nodejs_simple_sample/nodejs_modules/iothub_writer.js).
 
 ### Create an Azure Function to Decompress & Shred Messages
 - Wire up an Azure Function using your IoT Hub's Event Hub endpoint and utilize 
