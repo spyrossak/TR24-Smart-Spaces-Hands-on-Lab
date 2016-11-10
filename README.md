@@ -1,6 +1,6 @@
-# MVP Summit 2016 - IoT Workshop 
+# MVP Summit 2016 IoT Workshop 
 
-Welcome to the MVP Summit 2016 - IoT Workshop! 
+Welcome to the MVP Summit 2016 IoT Workshop! 
 
 
 
