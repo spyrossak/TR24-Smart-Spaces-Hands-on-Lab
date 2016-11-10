@@ -112,6 +112,7 @@ The BLE modules talk to the Bluetooth hardware via the BlueZ stack. You need ver
 ### Enable connectivity to the SensorTag device from your Raspberry Pi 3
 Before running the sample, you need to verify that your Raspberry Pi 3 can connect to the SensorTag device.
 
+
 1. Ensure the `rfkill` utility is installed.
    
     ```
@@ -199,6 +200,9 @@ At the time of writing, the IoT Gateway SDK only supports gateways that use BLE 
 * Add one device called **SensorTag_01** to your IoT hub and make a note of its id and device key. You can use the [Device Explorer or iothub-explorer][lnk-explorer-tools] tools to add this device to the IoT hub you created in the previous step and to retrieve its key. You will map this device to the SensorTag device when you configure the gateway.
 
 ### Build the Azure IoT Gateway SDK on your Raspberry Pi 3
+
+> Note: You can skip this step if you are using the provided SD card.
+
 Install dependancies for the Azure IoT Gateway SDK.
 
 ``` 
