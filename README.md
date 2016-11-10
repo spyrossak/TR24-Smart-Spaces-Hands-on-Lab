@@ -26,7 +26,7 @@ the Azure IoT Hub SDK, Azure IoT Gateway SDK and our bonus IoT Sample library on
 
 This lab will bring you through the new **Device Twins** and **Direct Methods** features. 
 
-The Azure IoT Device Management lab is available [here](https://github.com/Azure/azure-iot-sdks/tree/mvp_summit/c/serializer/samples/devicetwin_configupdate#run-the-device-twin-config-update-sample). 
+The Azure IoT Device Management lab is available [here](https://github.com/Azure/azure-iot-sdks/tree/mvp_summit/c/serializer/samples/devicetwin_configupdate#how-to-update-configuration-and-reboot-an-iot-device-with-azure-iot-device-twins). 
 
 
 ## Azure IoT Gateway SDK Lab 
