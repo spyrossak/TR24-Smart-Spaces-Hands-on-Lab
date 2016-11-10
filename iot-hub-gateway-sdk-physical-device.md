@@ -351,9 +351,9 @@ Add the MAC address of your SensorTag device and the device Id and key of the **
 #### BLE C2D Module Configuration
 ```json
 {
-    "module name": "BLE Printer",
+    "module name": "BLE C2D",
     "loading args": {
-      "module path": "build/samples/ble_gateway/ble_printer/libble_printer.so"
+      "module path": "build/modules/ble/libble_c2d.so"
     },
     "args": null
 }
