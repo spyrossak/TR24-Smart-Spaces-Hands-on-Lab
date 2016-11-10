@@ -375,8 +375,9 @@ The following configuration ensures the following:
     {"source" : "SensorTag", "sink" : "BLE Printer" },
     {"source" : "mapping", "sink" : "IoTHub" },
     {"source" : "IoTHub", "sink" : "mapping" },
-    {"source" : "mapping", "sink" : "SensorTag" }
-  ]
+    {"source" : "mapping", "sink" : "BLEC2D" },
+    {"source" : "BLEC2D", "sink" : "SensorTag"}
+ ]
 ```
 
 To run the sample, pass the path to the JSON configuration file to the **ble_gateway** binary. If you used the **gateway_sample.json** file, the command is below. Execute this command from the azure-iot-gateway-sdk directory
