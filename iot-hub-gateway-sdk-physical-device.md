@@ -337,10 +337,10 @@ Add the MAC address of your SensorTag device and the device Id and key of the **
 }
 ```
 
-#### BLE Printer Module Configuration
+#### BLEPrinter Module Configuration
 ```json
 {
-    "module name": "BLE Printer",
+    "module name": "BLEPrinter",
     "loading args": {
       "module path": "build/samples/ble_gateway/ble_printer/libble_printer.so"
     },
@@ -348,10 +348,10 @@ Add the MAC address of your SensorTag device and the device Id and key of the **
 }
 ```
 
-#### BLE C2D Module Configuration
+#### BLEC2D Module Configuration
 ```json
 {
-    "module name": "BLE C2D",
+    "module name": "BLEC2D",
     "loading args": {
       "module path": "build/modules/ble/libble_c2d.so"
     },
@@ -363,7 +363,9 @@ Add the MAC address of your SensorTag device and the device Id and key of the **
 The following configuration ensures the following:
 
 * The **Logger** module receives and logs all messages.
-* The **SensorTag** module sends messages to both the **mapping** and **BLE Printer** modules.
+* The **SensorTag** module sends messages to both the **mapping** and **
+
+** modules.
 * The **mapping** module sends messages to the **IoTHub** module to be sent up to your IoT Hub.
 * The **IoTHub** module sends messages back to the **mapping** module.
 * The **mapping** module sends messages back to the **SensorTag** module.
@@ -372,7 +374,7 @@ The following configuration ensures the following:
 "links" : [
     {"source" : "*", "sink" : "Logger" },
     {"source" : "SensorTag", "sink" : "mapping" },
-    {"source" : "SensorTag", "sink" : "BLE Printer" },
+    {"source" : "SensorTag", "sink" : "BLEPrinter" },
     {"source" : "mapping", "sink" : "IoTHub" },
     {"source" : "IoTHub", "sink" : "mapping" },
     {"source" : "mapping", "sink" : "BLEC2D" },
