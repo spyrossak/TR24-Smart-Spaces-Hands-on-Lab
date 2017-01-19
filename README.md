@@ -1,6 +1,6 @@
-# MVP Summit 2016 IoT Workshop 
+# TR24 Smart Spaces Hands-on Lab 
 
-Welcome to the MVP Summit 2016 IoT Workshop! 
+Welcome to the TR24 Smart Spaces Hands-on Lab ! 
 
 
 
