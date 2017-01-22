@@ -67,7 +67,7 @@ Here is a picture of this step in the end-to-end solution:
 Please follow these steps:
 
 1. Logged into your laptop using your Microsoft credentials, access the private Smart Building repository on the [Azure-Samples website](https://github.com/Azure-Samples/services-iot-hub-dotnet-smartbuilding). Either download `SmartBuildingSimulatorBinaries.zip` from the `/Simulator/binaries` folder and unzip it, or, optionally, use Git to clone the entire project to your laptop and build SimulatedSensors.Windows.sln using Visual Studio.
-2. Read through the [readme.md](https://github.com/Azure-Samples/services-iot-hub-dotnet-smartbuilding/blob/master/Simulator/readme.md) file to get an understanding of what the Simulator does.
+2. Read through the [readme.md](https://github.com/Azure-Samples/services-iot-hub-dotnet-smartbuilding/blob/master/Simulator/readme.md) file in the Simulator folder to get an understanding of what the Simulator does.
 2. Launch `SimulatedSensors.Windows.exe` and follow the steps in the `readme.md` file to 
     - Get the connection string for TR24SmartBuildingHub
     - Get the connection string for TR24SmartBuildingDB
