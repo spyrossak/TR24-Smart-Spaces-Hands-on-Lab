@@ -67,7 +67,7 @@ Here is a picture of this step in the end-to-end solution:
 Please follow these steps:
 
 1. Logged into your laptop using your Microsoft credentials, access the private Smart Building repository on the [Azure-Samples website](http://Azure-Samples/services-iot-hub-dotnet-smartbuilding). Either download `SmartBuildingSimulatorBinaries.zip` from the `/Simulator/binaries` folder and unzip it, or, optionally, use Git to clone the entire project to your laptop and build SimulatedSensors.Windows.sln using Visual Studio.
-2. Read through the [readme.md](http://Azure-Samples/services-iot-hub-dotnet-smartbuilding/Simulator/readme.md) file to get an understanding of what the Simulator does.
+2. Read through the [readme.md](https://github.com/Azure-Samples/services-iot-hub-dotnet-smartbuilding/blob/master/Simulator/readme.md) file to get an understanding of what the Simulator does.
 2. Launch `SimulatedSensors.Windows.exe` and follow the steps in the `readme.md` file to 
     - Get the connection string for TR24SmartBuildingHub
     - Get the connection string for TR24SmartBuildingDB
@@ -101,7 +101,7 @@ Please follow these steps:
 1. Create an Azure Stream Analytics job to push all the data received from IoT hub for your Simulator to a blob in the container TR24SS, and download the output blob to verify that you have
 correctly captured only the data from your Simulator.
 2. Download and open BACmap.csv to view the reference data that you need to join with the streaming device data in IoT Hub.
-3. Follow the steps in the [readme.md](http://Azure-Samples/services-iot-hub-dotnet-smartbuilding/Azure/StreamAnalytics/readme.md) file in the Azure/StreamAnalytics folder of the Azure-Samples website to
+3. Follow the steps in the [readme.md](https://github.com/Azure-Samples/services-iot-hub-dotnet-smartbuilding/blob/master/Azure/StreamAnalytics/readme.md) file in the Azure/StreamAnalytics folder of the Azure-Samples website to
 
     - Join the data from the Simulator with the reference data in BACmap.csv. Don't forget to add a filter in the query to capture only your Simulator's data. 
     - Output the data to a blob
