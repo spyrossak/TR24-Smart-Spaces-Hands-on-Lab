@@ -104,7 +104,7 @@ Please follow these steps:
 
 1. Download and open `BACmap.csv` to view the reference data that you need to join with the streaming device data in IoT Hub.
 2. Follow the steps in the [readme.md](https://github.com/Azure-Samples/services-iot-hub-dotnet-smartbuilding/blob/master/Azure/StreamAnalytics/readme.md) file in the Azure/StreamAnalytics folder of the Azure-Samples website to
-create an Azure Stream Analytics job called `LogAllEvents` that outputs the data received from IoT hub for your Simulator to blob storage
+create an Azure Stream Analytics job called `{Alias}LogAllEvents` that outputs the data received from IoT hub for your Simulator to blob storage
     - Join the data from the Simulator with the reference data in `BACmap.csv`. Don't forget to add a filter in the query to capture only your Simulator's data. 
     - Output the data to a blob called `{Alias}ASAOutput` in the container `tr24smartbuilding`
 3. Download the output blob to verify that you have correctly captured only the data from your Simulator.
@@ -128,7 +128,7 @@ in the Azure/SQLServer/EventHistorian folder to get an understanding of what the
 2. Edit and execute the `dbo.EventHistorian.Table.sql` script 
 in the [Azure/SQLServer/EventHistorian](https://github.com/Azure-Samples/services-iot-hub-dotnet-smartbuilding/blob/master/Azure/SQLServer/EventHistorian/) 
 folder to create the SQL table `dbo.{Alias}EventHistorian` in the `tr24SmartBuilding` database.
-3. Modify the `LogAllEvents` Stream Analytics job to output data to `dbo.{Alias}EventHistorian` instead of the `{Alias}ASAOutput` blob
+3. Modify the `{Alias}LogAllEvents` Stream Analytics job to output data to `dbo.{Alias}EventHistorian` instead of the `{Alias}ASAOutput` blob
 4. Send more data from the simulator to IoT Hub. Try changing the device and object names to send different values to the Events table.
 5. List the records in `dbo.{Alias}EventHistorian`.
 
@@ -150,11 +150,16 @@ Please follow these steps:
 1. Read through the [readme.md](https://github.com/Azure-Samples/services-iot-hub-dotnet-smartbuilding/blob/master/Azure/SQLServer/EventProcessing/readme.md) file 
 in the Azure/SQLServer/EventProcessing folder to get an understanding of what the stored procedure is doing.
 2. Edit and execute the `dbo.Pivot_VAV.Table.sql` script 
-in the [Azure/SQLServer/EventProcessing](https://github.com/Azure-Samples/services-iot-hub-dotnet-smartbuilding/blob/master/Azure/SQLServer/EventProcessing/) 
+in the [Azure/SQLServer/EventProcessing](https://github.com/Azure-Samples/services-iot-hub-dotnet-smartbuilding/blob/master/Azure/SQLAzure/EventProcessing/) 
 folder to create the SQL table `dbo.{Alias}Pivot_VAV` in the `tr24SmartBuilding` database.
-3. Edit and execute the `dbo.sp_PopulateEquipmentPivots.StoredProcedure` stored procedure to push records from `dbo.{Alias}EventHistorian` to `dbo.{Alias}Pivot_VAV`.
-4. List the records in `dbo.{Alias}Pivot_VAV`.
-5. Send more records from your simulator, rerun the stored procedure, and verify the records are displayed in the pivot file. 
+	* Do the same with `dbo.{Alias}Pivot_AHU.Table.sql`
+	* Do the same with `dbo.{Alias}Pivot_FCU.Table.sql`
+3. Edit and execute the `dbo.MissingTagNames.Table.sql` script  to create table `dbo.{Alias}MissingTagNames`
+4. Edit and execute the `dbo.sp_PopulateEquipmentPivot.StoredProcedure` stored procedure to create stored procedure `sp_{Alias}PopulateEquipmentPivot` to push records from `dbo.{Alias}EventHistorian` to `dbo.{Alias}Pivot_VAV`, `dbo.{Alias}Pivot_AHU`, `dbo.{Alias}Pivot_FCU` and `dbo.{Alias}MissingTagNames` tables, this will create stored procedure named `sp_{Alias}PopulateEquipmentPivot`.
+5. Edit and execute the `dbo.sp_PopulateEquipmentPivots.StoredProcedure` stored procedure to create `sp_{Alias}PopulateEquipmentPivots` stored procedure which calls `dbo.sp_{Alias}PopulateEquipmentPivot` three times with different parameters.
+6. Execute `sp_PopulateEquipmentPivots` stored procedure to push records from `dbo.{Alias}EventHistorian` to `dbo.{Alias}Pivot_VAV`, `dbo.{Alias}Pivot_AHU`,`dbo.{Alias}Pivot_FCU` and `dbo.{Alias}MissingTagNames`.
+7. List the records in `dbo.{Alias}Pivot_VAV`.
+8. Send more records from your simulator, rerun the stored procedure, and verify the records are displayed in the pivot file. 
 
 You have successfully completed this exercise if and only if the data that you saw in `dbo.{Alias}EventHistorian` are represented in `dbo.{Alias}Pivot_VAV`.
 
@@ -177,9 +182,10 @@ in the Azure/SQLServer/FaultProcessing folder to get an understanding of what th
 2. Edit and execute the `dbo.FaultInstances.Table.sql` script 
 in the [Azure/SQLServer/FaultProcessing](https://github.com/Azure-Samples/services-iot-hub-dotnet-smartbuilding/blob/master/Azure/SQLServer/FaultProcessing/) 
 folder to create the SQL table `dbo.{Alias}FaultInstances` in the `tr24SmartBuilding` database.
-3. Edit and execute the `dbo.sp_PopulateFaultInstances.StoredProcedure` stored procedure to push records from `dbo.{Alias}Pivot_VAV` to `dbo.{Alias}FaultInstances`.
-4. List the records in `dbo.{Alias}FaultInstances`.
-5. Send more records from your simulator, but this time increase the temperature to above the threshhold shown in the stored procedure, rerun the two stored procedures, and verify the records are displayed in the fault table. 
+3. Edit and execute the `dbo.sp_PopulateFaultInstances.StoredProcedure` stored procedure to create `sp_{Alias}PopulateFaultInstances` stored procedure.
+4. Execute `sp_{Alias}PopulateFaultInstances` to push records from `dbo.{Alias}Pivot_VAV` to `dbo.{Alias}FaultInstances`.
+5. List the records in `dbo.{Alias}FaultInstances`.
+6. Send more records from your simulator, but this time increase the temperature to above the threshold shown in the stored procedure, rerun the two stored procedures (`sp_{Alias}PopulateEquipmentPivots` and `sp_{Alias}PopulateFaultInstances`), and verify the records are displayed in the fault table. 
 
 
 You have successfully completed this exercise if and only if you are able to generate some faults that you can see in the fault table!
