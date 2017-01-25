@@ -1,6 +1,6 @@
 # TR24 Smart Spaces Hands-on Lab 
 
-Welcome to the TR24 Smart Spaces Hands-on Lab ! 
+Welcome to the TR24 Smart Spaces Hands-on Lab! 
 
 
 We put together this workshop to help you understand the basic constructs of a Building Management 
@@ -15,7 +15,7 @@ a Proof of Concept.
 In order to complete this lab without seriously struggling, you need to have a good understanding of Microsoft Azure. Specifically, you 
 should have done each of the following more than a few times:
 
-* Used http://portal.azure.com
+* Used [http://portal.azure.com](http://portal.azure.com)
 * Created an IoT Hub or Event Hub
 * Used Device Explorer or other tool to view data coming into IoT Hub
 * Created an Azure Stream Analytics job
@@ -30,7 +30,7 @@ participant wishing to do this part of the lab needs to have the following insta
 
 A participant doing this part of the lab would also need familiarity with:
 
-* Accessing http://GitHub.com 
+* Accessing [http://GitHub.com](http://GitHub.com) 
 * Using Visual Studio to build and run a Project
 
 ## Getting Started
@@ -38,16 +38,19 @@ Each workshop participant has been provided access to the Azure subscription for
 building assets in that subscription. In addition, we have already created some objects that every participant 
 will be using. Here are the names you need to know:
 
-> Azure subscription ID: <br>
-> IoT Hub: TR24SmartBuildingHub <br>
-> SQL Database: TR24SmartBuildingDB <br>
-> Azure blob storage account:<br>
-> Device map file:
+> Azure subscription ID: `Microsoft Azure Internal Consumption (da1dbdc2-....)`<br>
+> IoT Hub: `TR24SmartBuildingHub` <br>
+> SQL Server: `tr24smartbuilding.database.windows.net` <br>
+> SQL Database: `tr24SmartBuilding` <br>
+> SQL account: `TR24_Admin` <br>
+> SQL password: `PCS2017!`<br>
+> Azure blob storage account: `tr24smartbuilding`<br>
+> Device map file: `refdata/bacmap/2017/.../.../bacmap.csv`
 
 Whenever you encounter an instruction in the lab to create something, you should preface
-the name of the object you are creating with your initials. For example, if your initials are `SSS` and are asked to create 
-an Azure Stream Analytics job called `{Init}LogAllEvents` you would create a job with the 
-name `SSSLogAllEvents`. 
+the name of the object you are creating with your initials. For example, if your alias is `Spyros` and are asked to create 
+an Azure Stream Analytics job called `{Alias}LogAllEvents` you would create a job with the 
+name `SpyrosLogAllEvents`. 
 
 Here is a picture of this step in the end-to-end solution:
 
@@ -66,20 +69,20 @@ Here is a picture of this step in the end-to-end solution:
 
 Please follow these steps:
 
-1. Logged into your laptop using your Microsoft credentials, access the private Smart Building repository on the [Azure-Samples website](https://github.com/Azure-Samples/services-iot-hub-dotnet-smartbuilding). Either download `SmartBuildingSimulatorBinaries.zip` from the `/Simulator/binaries` folder and unzip it, or, optionally, use Git to clone the entire project to your laptop and build SimulatedSensors.Windows.sln using Visual Studio.
+1. Logged into your laptop using your Microsoft credentials, access the private Smart Building repository on the [Azure-Samples website](https://github.com/Azure-Samples/services-iot-hub-dotnet-smartbuilding). Either download `SmartBuildingSimulatorBinaries.zip` from the `/Simulator/binaries` folder and unzip it, or, optionally, use Git to clone the entire project to your laptop and build `SimulatedSensors.Windows.sln` using Visual Studio.
 2. Read through the [readme.md](https://github.com/Azure-Samples/services-iot-hub-dotnet-smartbuilding/blob/master/Simulator/readme.md) file in the Simulator folder to get an understanding of what the Simulator does.
-2. Launch `SimulatedSensors.Windows.exe` and follow the steps in the `readme.md` file to 
-    - Get the connection string for TR24SmartBuildingHub
-    - Get the connection string for TR24SmartBuildingDB
+3. Launch `SimulatedSensors.Windows.exe` and follow the steps in the [readme.md](https://github.com/Azure-Samples/services-iot-hub-dotnet-smartbuilding/blob/master/Simulator/readme.md) file to 
+    - Get the connection string for `TR24SmartBuildingHub`
+    - Get the connection string for `TR24SmartBuildingDB`
     - Find a DeviceId registered in the IoT Hub
-    - Enter data into the simulator text fields
+    - Select names for the simulator text fields from the drop-down menus
     - Send data and verify it is being received by the IoT Hub
 
     When prompted to enter data in the Simulator, use the following: 
 
-    - **IoT Connnection String**: {TR24SmartBuildingHub Connection String}<br>
-    - **SQL Connection String**: {TR24SmartBuildingDB Connection String}<br>
-    - **GatewayName**: Select {Init}GatewayName from the drop-down list of available GatewayNames<br>
+    - **IoT Connection String**: `{TR24SmartBuildingHub Connection String}`<br>
+    - **SQL Connection String**: `{TR24SmartBuildingDB Connection String}`<br>
+    - **GatewayName**: Select `{Alias}Gateway` from the drop-down list of available GatewayNames<br>
     - **DeviceName**: Select from drop-down list<br>
     - **ObjectType**: Select from drop-down list <br>
     - **Instance**: Select from drop-down list <br>
@@ -91,21 +94,20 @@ Please follow these steps:
 
 
 ## Exercise 2: Create an Azure Stream Analytics job
-Here is a picture of this step in the end-to-end solution:
+In this exercise, you will push data from the device into blob storage. Here is a picture of this step in the end-to-end solution:
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="images/TR24-exercise2-medium.png" alt="Exercise 1" width="320"/>
 
 Please follow these steps:
 
-1. Create an Azure Stream Analytics job to push all the data received from IoT hub for your Simulator to a blob in the container TR24SS, and download the output blob to verify that you have
-correctly captured only the data from your Simulator.
-2. Download and open BACmap.csv to view the reference data that you need to join with the streaming device data in IoT Hub.
-3. Follow the steps in the [readme.md](https://github.com/Azure-Samples/services-iot-hub-dotnet-smartbuilding/blob/master/Azure/StreamAnalytics/readme.md) file in the Azure/StreamAnalytics folder of the Azure-Samples website to
 
-    - Join the data from the Simulator with the reference data in BACmap.csv. Don't forget to add a filter in the query to capture only your Simulator's data. 
-    - Output the data to a blob
-    - Download and open the output blob to verify that you have sent data
+1. Download and open `BACmap.csv` to view the reference data that you need to join with the streaming device data in IoT Hub.
+2. Follow the steps in the [readme.md](https://github.com/Azure-Samples/services-iot-hub-dotnet-smartbuilding/blob/master/Azure/StreamAnalytics/readme.md) file in the Azure/StreamAnalytics folder of the Azure-Samples website to
+create an Azure Stream Analytics job called `LogAllEvents` that outputs the data received from IoT hub for your Simulator to blob storage
+    - Join the data from the Simulator with the reference data in `BACmap.csv`. Don't forget to add a filter in the query to capture only your Simulator's data. 
+    - Output the data to a blob called `{Alias}ASAOutput` in the container `tr24smartbuilding`
+3. Download the output blob to verify that you have correctly captured only the data from your Simulator.
 
 You have successfully completed this exercise if and only if the data that you saw in Device Explorer is represented in the output blob, but 
 instead of having the BACnet addressing scheme for your simulated device, it has the physical address of the device.
@@ -114,26 +116,30 @@ instead of having the BACnet addressing scheme for your simulated device, it has
 *Estimated time to complete: 20 minutes*
 
 ## Exercise 3: Push the device data into an Event Historian table in SQL
-Here is a picture of this step in the end-to-end solution:
+In this exercise, you will modify the Stream Analytics job to push data from your device to a table in SQL Azure. Here is a picture of this step in the end-to-end solution:
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="images/TR24-exercise3-medium.png" alt="Exercise 1" width="320"/>
 
 Please follow these steps:
 
-1. Create the Event Historian table as dbo.{Init}EventHistorian using CREATE statement
-downloaded from http://   
-2. Modify the ASA job
-3. Send more data from the simulator to IoT Hub
-4. List records in your table
+1. Read through the [readme.md](https://github.com/Azure-Samples/services-iot-hub-dotnet-smartbuilding/blob/master/Azure/SQLServer/EventHistorian/readme.md) file 
+in the Azure/SQLServer/EventHistorian folder to get an understanding of what the EventHistorian is used for.
+2. Edit and execute the `dbo.EventHistorian.Table.sql` script 
+in the [Azure/SQLServer/EventHistorian](https://github.com/Azure-Samples/services-iot-hub-dotnet-smartbuilding/blob/master/Azure/SQLServer/EventHistorian/) 
+folder to create the SQL table `dbo.{Alias}EventHistorian` in the `tr24SmartBuilding` database.
+3. Modify the `LogAllEvents` Stream Analytics job to output data to `dbo.{Alias}EventHistorian` instead of the `{Alias}ASAOutput` blob
+4. Send more data from the simulator to IoT Hub. Try changing the device and object names to send different values to the Events table.
+5. List the records in `dbo.{Alias}EventHistorian`.
+
+You have successfully completed this exercise if and only if the data that you saw in `{Alias}ASAOutput` blob are represented in the `dbo.{Alias}EventHistorian` listing.
 
 *Estimated time to complete: 10 minutes*
 
-## Exercise 4: Send Event history to PIVOT
+## Exercise 4: Send the event history to a pivot table
 
-This lesson shows how to ...
-
-In this step in creation of the end-to-end solution we will be working only in SQL Azure:
+In this exercise, you will create and execute a SQL Stored Procedure to take the raw event data and pivot into a format for easier consumption by Power BI. Physical devices will typically have many different sensors emitting data (for example air flow, input and output temperatures), and the pivot would be 
+more populated than you will see when sending a single sensor reading from your simulator, but we need to create the pivot files for use in subsequent exercises. In this step in creation of the end-to-end solution we will be working only in SQL Azure:
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="images/TR24-exercise4-medium.png" alt="Exercise 1" width="80"/>
@@ -141,18 +147,43 @@ In this step in creation of the end-to-end solution we will be working only in S
 
 Please follow these steps:
 
+1. Read through the [readme.md](https://github.com/Azure-Samples/services-iot-hub-dotnet-smartbuilding/blob/master/Azure/SQLServer/EventProcessing/readme.md) file 
+in the Azure/SQLServer/EventProcessing folder to get an understanding of what the stored procedure is doing.
+2. Edit and execute the `dbo.Pivot_VAV.Table.sql` script 
+in the [Azure/SQLServer/EventProcessing](https://github.com/Azure-Samples/services-iot-hub-dotnet-smartbuilding/blob/master/Azure/SQLServer/EventProcessing/) 
+folder to create the SQL table `dbo.{Alias}Pivot_VAV` in the `tr24SmartBuilding` database.
+3. Edit and execute the `dbo.sp_PopulateEquipmentPivots.StoredProcedure` stored procedure to push records from `dbo.{Alias}EventHistorian` to `dbo.{Alias}Pivot_VAV`.
+4. List the records in `dbo.{Alias}Pivot_VAV`.
+5. Send more records from your simulator, rerun the stored procedure, and verify the records are displayed in the pivot file. 
+
+You have successfully completed this exercise if and only if the data that you saw in `dbo.{Alias}EventHistorian` are represented in `dbo.{Alias}Pivot_VAV`.
+
+
 *Estimated time to complete: 10 minutes*
 
 ## Exercise 5: Create Fault processing processes
 
-In this step in creation of the end-to-end solution we will again be working only in SQL Azure:
+In this exercise, you will create and execute a SQL Stored Procedure to take the pivoted event data and look for data indicative of problems in the equipment, known as 
+'Faults'. In this step in creation of the end-to-end solution we will again be working only in SQL Azure:
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="images/TR24-exercise5-medium.png" alt="Exercise 1" width="80"/>
 
 
-
 Please follow these steps:
+
+1. Read through the [readme.md](https://github.com/Azure-Samples/services-iot-hub-dotnet-smartbuilding/blob/master/Azure/SQLServer/FaultProcessing/readme.md) file 
+in the Azure/SQLServer/FaultProcessing folder to get an understanding of what the stored procedure is doing.
+2. Edit and execute the `dbo.FaultInstances.Table.sql` script 
+in the [Azure/SQLServer/FaultProcessing](https://github.com/Azure-Samples/services-iot-hub-dotnet-smartbuilding/blob/master/Azure/SQLServer/FaultProcessing/) 
+folder to create the SQL table `dbo.{Alias}FaultInstances` in the `tr24SmartBuilding` database.
+3. Edit and execute the `dbo.sp_PopulateFaultInstances.StoredProcedure` stored procedure to push records from `dbo.{Alias}Pivot_VAV` to `dbo.{Alias}FaultInstances`.
+4. List the records in `dbo.{Alias}FaultInstances`.
+5. Send more records from your simulator, but this time increase the temperature to above the threshhold shown in the stored procedure, rerun the two stored procedures, and verify the records are displayed in the fault table. 
+
+
+You have successfully completed this exercise if and only if you are able to generate some faults that you can see in the fault table!
+
 
 *Estimated time to complete: 10 minutes*
 
