@@ -69,19 +69,21 @@ Here is a picture of this step in the end-to-end solution:
 
 Please follow these steps:
 
-1. Logged into your laptop using your Microsoft credentials, access the private Smart Building repository on the [Azure-Samples website](https://github.com/Azure-Samples/services-iot-hub-dotnet-smartbuilding). Either download `SmartBuildingSimulatorBinaries.zip` from the `/Simulator/binaries` folder and unzip it, or, optionally, use Git to clone the entire project to your laptop and build `SimulatedSensors.Windows.sln` using Visual Studio.
+1. Log into your laptop using your Microsoft credentials, and access the private Smart Building repository on the [Azure-Samples website](https://github.com/Azure-Samples/services-iot-hub-dotnet-smartbuilding). Either download `SmartBuildingSimulatorBinaries.zip` from the `/Simulator/binaries` folder and unzip it, or, optionally, use Git to clone the entire project to your laptop and build `SimulatedSensors.Windows.sln` using Visual Studio.
 2. Read through the [readme.md](https://github.com/Azure-Samples/services-iot-hub-dotnet-smartbuilding/blob/master/Simulator/readme.md) file in the Simulator folder to get an understanding of what the Simulator does.
 3. Launch `SimulatedSensors.Windows.exe` and follow the steps in the [readme.md](https://github.com/Azure-Samples/services-iot-hub-dotnet-smartbuilding/blob/master/Simulator/readme.md) file to 
     - Get the connection string for `TR24SmartBuildingHub`
     - Get the connection string for `TR24SmartBuildingDB`
+    - Configure the SQL firewall rules to allow access to your laptop IP address
     - Find a DeviceId registered in the IoT Hub
     - Select names for the simulator text fields from the drop-down menus
     - Send data and verify it is being received by the IoT Hub
 
     When prompted to enter data in the Simulator, use the following: 
 
-    - **IoT Connection String**: `{TR24SmartBuildingHub Connection String}`<br>
-    - **SQL Connection String**: `{TR24SmartBuildingDB Connection String}`<br>
+    - **Connection String (of IoT Hub)**: `{TR24SmartBuildingHub Connection String}`<br>
+    - **DB Connection String (optional)**: `{TR24SmartBuildingDB Connection String}`<br>
+    - **DeviceId (IoT Hub registered device)**: Select `tr24IoTHubDeviceId` from the drop-down list of available Ids<br>
     - **GatewayName**: Select `{Alias}Gateway` from the drop-down list of available GatewayNames<br>
     - **DeviceName**: Select from drop-down list<br>
     - **ObjectType**: Select from drop-down list <br>
