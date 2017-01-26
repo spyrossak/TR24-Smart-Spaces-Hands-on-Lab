@@ -150,7 +150,7 @@ Please follow these steps:
 1. Read through the [readme.md](https://github.com/Azure-Samples/services-iot-hub-dotnet-smartbuilding/blob/master/Azure/SQLServer/EventProcessing/readme.md) file 
 in the Azure/SQLServer/EventProcessing folder to get an understanding of what the stored procedure is doing.
 2. Edit and execute the `dbo.Pivot_VAV.Table.sql` script 
-in the [Azure/SQLServer/EventProcessing](https://github.com/Azure-Samples/services-iot-hub-dotnet-smartbuilding/blob/master/Azure/SQLAzure/EventProcessing/) 
+in the [Azure/SQLServer/EventProcessing](https://github.com/Azure-Samples/services-iot-hub-dotnet-smartbuilding/blob/master/Azure/SQLServer/EventProcessing/) 
 folder to create the SQL table `dbo.{Alias}Pivot_VAV` in the `tr24SmartBuilding` database.
 	* Do the same with `dbo.{Alias}Pivot_AHU.Table.sql`
 	* Do the same with `dbo.{Alias}Pivot_FCU.Table.sql`
