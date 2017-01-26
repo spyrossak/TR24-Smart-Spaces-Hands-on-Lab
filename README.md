@@ -10,28 +10,31 @@ analytics on that data, in the hope that this will give you a clearer understand
 BMSs like ICONICS do. The working solution is NOT meant to be a replacement for an enterprise BMS, but only 
 a Proof of Concept.
 
+## Prerequisites
+Before coming to this lab, you need to have
 
-## Assumptions and Prerequisites
+* [Microsoft SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) installed on your laptop
+* [Device Explorer](https://github.com/Azure/azure-iot-sdks/blob/master/doc/manage_iot_hub.md#device-explorer) installed on your laptop
+* Signed up for a [GitHub](https://github.com/) account
+* Joined the [Azure-Samples](https://repos.opensource.microsoft.com/Azure-Samples) organization in GitHub
+
+### Optional
+Most attendees will simply download some software binaries for a device simulator. An optional component of this lab 
+uses Visual Studio to edit and compile the simulator. A workshop participant wishing to do this needs 
+
+* Git Shell or Git for Windows installed on their laptop
+* Visual Studio 2013 or later installed on their laptop
+
+
+## Assumptions
 In order to complete this lab without seriously struggling, you need to have a good understanding of Microsoft Azure. Specifically, you 
 should have done each of the following more than a few times:
 
-* Used [http://portal.azure.com](http://portal.azure.com)
 * Created an IoT Hub or Event Hub
-* Used Device Explorer or other tool to view data coming into IoT Hub
+* Used Device Explorer to view data coming into IoT Hub
 * Created an Azure Stream Analytics job
 * Created and used Azure blob storage
 * Created tables, views, and stored procedures in SQL Azure
-
-An optional component of this lab uses Visual Studio to compile and run a program. A workshop 
-participant wishing to do this part of the lab needs to have the following installed on his/her laptop:
-
-* Git Shell or Git for Windows 
-* Visual Studio 2013 or later
-
-A participant doing this part of the lab would also need familiarity with:
-
-* Accessing [http://GitHub.com](http://GitHub.com) 
-* Using Visual Studio to build and run a Project
 
 ## Getting Started
 Each workshop participant has been provided access to the Azure subscription for the lab, and will be 
@@ -40,6 +43,7 @@ will be using. Here are the names you need to know:
 
 > Azure subscription ID: `Microsoft Azure Internal Consumption (da1dbdc2-....)`<br>
 > IoT Hub: `TR24SmartBuildingHub` <br>
+> IoT Hub registered DeviceId: `tr24IoTHubDeviceId` <br>
 > SQL Server: `tr24smartbuilding.database.windows.net` <br>
 > SQL Database: `tr24SmartBuilding` <br>
 > SQL account: `TR24_Admin` <br>
