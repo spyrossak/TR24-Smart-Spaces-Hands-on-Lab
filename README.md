@@ -160,9 +160,9 @@ in the [Azure/SQLServer/EventProcessing](https://github.com/Azure-Samples/servic
 folder to create the SQL table `dbo.{Alias}Pivot_VAV` in the `tr24SmartBuilding` database.
 	* Do the same with `dbo.{Alias}Pivot_AHU.Table.sql`
 	* Do the same with `dbo.{Alias}Pivot_FCU.Table.sql`
-3. Edit and execute the `dbo.MissingTagNames.Table.sql` script  to create table `dbo.{Alias}MissingTagNames`
-4. Edit and execute the `dbo.sp_PopulateEquipmentPivot.StoredProcedure` stored procedure to create stored procedure `sp_{Alias}PopulateEquipmentPivot` to push records from `dbo.{Alias}EventHistorian` to `dbo.{Alias}Pivot_VAV`, `dbo.{Alias}Pivot_AHU`, `dbo.{Alias}Pivot_FCU` and `dbo.{Alias}MissingTagNames` tables, this will create stored procedure named `sp_{Alias}PopulateEquipmentPivot`.
-5. Edit and execute the `dbo.sp_PopulateEquipmentPivots.StoredProcedure` stored procedure to create `sp_{Alias}PopulateEquipmentPivots` stored procedure which calls `dbo.sp_{Alias}PopulateEquipmentPivot` three times with different parameters.
+3. Edit and execute the `dbo.MissingTagNames.Table.sql` script to create table `dbo.{Alias}MissingTagNames`
+4. Edit and execute the `dbo.sp_PopulateEquipmentPivot.sql` script to create stored procedure `sp_{Alias}PopulateEquipmentPivot` to push records from `dbo.{Alias}EventHistorian` to `dbo.{Alias}Pivot_VAV`, `dbo.{Alias}Pivot_AHU`, `dbo.{Alias}Pivot_FCU` and `dbo.{Alias}MissingTagNames` tables, this will create stored procedure named `sp_{Alias}PopulateEquipmentPivot`.
+5. Edit and execute the `dbo.sp_PopulateEquipmentPivots.sql` script to create `sp_{Alias}PopulateEquipmentPivots` stored procedure which calls `dbo.sp_{Alias}PopulateEquipmentPivot` three times with different parameters.
 6. Execute `sp_PopulateEquipmentPivots` stored procedure to push records from `dbo.{Alias}EventHistorian` to `dbo.{Alias}Pivot_VAV`, `dbo.{Alias}Pivot_AHU`,`dbo.{Alias}Pivot_FCU` and `dbo.{Alias}MissingTagNames`.
 7. List the records in `dbo.{Alias}Pivot_VAV`.
 8. Send more records from your simulator, rerun the stored procedure, and verify the records are displayed in the pivot file. 
@@ -188,8 +188,8 @@ in the Azure/SQLServer/FaultProcessing folder to get an understanding of what th
 2. Edit and execute the `dbo.FaultInstances.Table.sql` script 
 in the [Azure/SQLServer/FaultProcessing](https://github.com/Azure-Samples/services-iot-hub-dotnet-smartbuilding/blob/master/Azure/SQLServer/FaultProcessing/) 
 folder to create the SQL table `dbo.{Alias}FaultInstances` in the `tr24SmartBuilding` database.
-3. Edit and execute the `dbo.sp_PopulateFaultInstances.StoredProcedure` stored procedure to create `sp_{Alias}PopulateFaultInstances` stored procedure.
-4. Execute `sp_{Alias}PopulateFaultInstances` to push records from `dbo.{Alias}Pivot_VAV` to `dbo.{Alias}FaultInstances`.
+3. Edit and execute the `dbo.sp_PopulateFaultInstances.sql` script to create `sp_{Alias}PopulateFaultInstances` stored procedure.
+4. Execute `sp_{Alias}PopulateFaultInstances` stored procedure to push records from `dbo.{Alias}Pivot_VAV` to `dbo.{Alias}FaultInstances`.
 5. List the records in `dbo.{Alias}FaultInstances`.
 6. Send more records from your simulator, but this time increase the temperature to above the threshold shown in the stored procedure, rerun the two stored procedures (`sp_{Alias}PopulateEquipmentPivots` and `sp_{Alias}PopulateFaultInstances`), and verify the records are displayed in the fault table. 
 
