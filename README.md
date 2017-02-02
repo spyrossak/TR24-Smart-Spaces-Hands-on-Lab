@@ -14,7 +14,7 @@ a Proof of Concept.
 Before coming to this lab, you need to have
 
 * [Microsoft SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) installed on your laptop
-* [Device Explorer](https://github.com/Azure/azure-iot-sdks/blob/master/doc/manage_iot_hub.md#device-explorer) installed on your laptop
+* [Device Explorer](https://github.com/Azure/azure-iot-sdks/releases) installed on your laptop
 * Signed up for a [GitHub](https://github.com/) account
 * Joined the [Azure-Samples](https://repos.opensource.microsoft.com/Azure-Samples) organization in GitHub
 
